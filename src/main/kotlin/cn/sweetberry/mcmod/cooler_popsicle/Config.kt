@@ -1,7 +1,5 @@
 package cn.sweetberry.mcmod.cooler_popsicle
 
-import net.minecraft.core.registries.BuiltInRegistries
-import net.minecraft.resources.ResourceLocation
 import net.neoforged.neoforge.common.ModConfigSpec
 
 // An example config class. This is not required, but it's a good idea to have one to keep your config organized.
@@ -9,31 +7,13 @@ import net.neoforged.neoforge.common.ModConfigSpec
 object Config {
     private val BUILDER = ModConfigSpec.Builder()
 
-    val LOG_DIRT_BLOCK: ModConfigSpec.BooleanValue = BUILDER
-        .comment("Whether to log the dirt block on common setup")
-        .define("logDirtBlock", true)
+    val IS_ENABLED: ModConfigSpec.BooleanValue = BUILDER
+        .comment("Whether the mod is enabled")
+        .define("isEnabled", true)
 
-    val MAGIC_NUMBER: ModConfigSpec.IntValue = BUILDER
-        .comment("A magic number")
-        .defineInRange("magicNumber", 42, 0, Int.MAX_VALUE)
-
-    val MAGIC_NUMBER_INTRODUCTION: ModConfigSpec.ConfigValue<String?> = BUILDER
-        .comment("What you want the introduction message to be for the magic number")
-        .define<String?>("magicNumberIntroduction", "The magic number is... ")
-
-    // a list of strings that are treated as resource locations for items
-    val ITEM_STRINGS: ModConfigSpec.ConfigValue<MutableList<out String>> = BUILDER
-        .comment("A list of items to log on common setup.")
-        .defineListAllowEmpty(
-            "items",
-            mutableListOf("minecraft:iron_ingot"),
-            { "" },
-            Config::validateItemName
-        )
+    val COOLING_TIME: ModConfigSpec.IntValue = BUILDER
+        .comment("The time it takes for the cooling effect to wear off, in ticks")
+        .defineInRange("coolingTime", 6000, 0, Int.MAX_VALUE)
 
     val SPEC: ModConfigSpec = BUILDER.build()
-
-    private fun validateItemName(obj: Any?): Boolean {
-        return obj is String && BuiltInRegistries.ITEM.containsKey(ResourceLocation.parse(obj))
-    }
 }
