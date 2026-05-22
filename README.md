@@ -1,25 +1,34 @@
+# Cooler Popsicle
 
-Installation information
-=======
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+A Minecraft mod that makes popsicles actually cool you down.
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+Eat a **Melon Popsicle** from [Farmer's Delight](https://modrinth.com/mod/farmers-delight) to gain the **Cool Effect**, which removes and blocks the **Heat Stroke** effect from [Ecliptic Seasons](https://modrinth.com/mod/ecliptic-seasons).
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+## Features
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+- **Cool Effect** — Grants immunity to Heat Stroke while active
+- Configurable cooling duration
+- Toggleable via config file
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+## Requirements
+
+- Minecraft **1.21.1**
+- NeoForge
+- [KotlinForForge](https://modrinth.com/mod/kotlin-for-forge)
+- [Farmer's Delight](https://modrinth.com/mod/farmers-delight) — provides the Melon Popsicle item
+- [Ecliptic Seasons](https://modrinth.com/mod/ecliptic-seasons) — provides the Heat Stroke effect
+
+## Configuration
+
+Located in `config/cooler_popsicle.toml`:
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| `isEnabled` | `true` | Whether the mod is enabled |
+| `coolingTime` | `6000` | Duration of Cool Effect in ticks (6000 = 5 minutes) |
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
